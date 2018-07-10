@@ -63,43 +63,6 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 .row {
   width: 100%;
 }
-.col-12 {
-  width: 100%;
-}
-.col-11 {
-  width: 91.66666667%;
-}
-.col-10 {
-  width: 83.33333333%;
-}
-.col-9 {
-  width: 75%;
-}
-.col-8 {
-  width: 66.66666667%;
-}
-.col-7 {
-  width: 58.33333333%;
-}
-.col-6 {
-  width: 50%;
-}
-.col-5 {
-  width: 41.66666667%;
-}
-.col-4 {
-  width: 33.33333333%;
-}
-.col-3 {
-  width: 25%;
-}
-.col-2 {
-  width: 16.66666667%;
-}
-.col-1 {
-  width: 8.33333333%;
-}
-
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
@@ -200,7 +163,6 @@ nav h1 a {
   margin: auto;
   margin-bottom: 20px;
   min-height: 380px;
-  text-align: left;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
@@ -330,7 +292,7 @@ nav h1 a {
 }
 
 /* ================== Media Queries ======================== */
-@media screen and (min-width: 701px) and (orientation: portrait){
+@media screen and (min-width: 701px){
   .container {
     width: 90%;
     margin: auto;
@@ -349,16 +311,16 @@ nav h1 a {
       font-size: 18pt;
     }
     #restaurant-container {
-      padding: 86px 40px 30px;
+      padding: 86px 26px 30px;
     }
     #reviews-container {
-      padding: 0 40px 30px;
+      padding: 0 18px 30px;
     }
     .inside #map-container {
       top: 50px;
     }
   }
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 700px) and (orientation: portrait) {
     .inside #map-container {
       height: 250px;
       width: 100%;
@@ -431,28 +393,14 @@ nav h1 a {
     }
   }
 
-  @media screen and (orientation: landscape) {
-    #restaurant-container, #reviews-container {
-      width: 45%;
-    }
-    .inside #map-container {
-      width: 50%;
-      position: fixed;
-      top: 0;
-    }
-    #restaurant-container{
-      margin: 20px 0 15px;
-    }
-    #reviews-container {
-      margin: 0 0 15px;
-    }
-    .inside #footer {
-      width: 50%;
-    }
-    #restaurant-cuisine  {
-      margin-left: 26px;
-    }
-    #restaurant-name {
-      margin-left: 26px;
-    }
+  /* ================= Accessibility ============================ */
+
+  .skip-map {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    background: red;
+    color: white;
+    padding: 8px;
+    z-index: 100;
   }
