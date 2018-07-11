@@ -181,6 +181,9 @@ createRestaurantHTML = (restaurant) => {
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
+  // adding Accessibility description
+  more.setAttribute('aria-label', `${restaurant.name}, ${restaurant.neighborhood}, ${restaurant.address}, View Details`);
+  more.setAttribute('role', 'button');
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
@@ -201,7 +204,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 
-} 
+}
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
@@ -213,3 +216,16 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 } */
 
+//service Worker
+if ('serviceWorker' in navigator) {
+  // Register a service worker hosted at the root of the
+  // site using the default scope.
+  navigator.serviceWorker.register('/ServiceWorker.js').then(function(registration) {
+    scope: './controlled'
+    console.log('Service worker registration succeeded:', registration);
+  }, /*catch*/ function(error) {
+    console.log('Service worker registration failed:', error);
+  });
+} else {
+  console.log('Service workers are not supported.');
+}
