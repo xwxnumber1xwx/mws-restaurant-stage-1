@@ -1,6 +1,10 @@
 let restaurant;
 var newMap;
 
+  //Accessibility Tab index
+  const home = document.getElementById('home');
+  home.setAttribute('tabindex', '1');
+
 /**
  * Initialize map as soon as the page is loaded.
  */
@@ -80,8 +84,6 @@ fetchRestaurantFromURL = (callback) => {
  * Create restaurant HTML and add it to the webpage
  */
 fillRestaurantHTML = (restaurant = self.restaurant) => {
-  //Accessibility Tab index
-  const home = document.querySelector('.home').setAttribute('tabindex', '1');
 
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
